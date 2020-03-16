@@ -3,6 +3,8 @@ import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import Login from './../components/login.vue'
 import Home from './../components/home.vue'
+import Welcome from './../components/welcome.vue'
+import Users from './../components/user/users.vue'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -10,7 +12,15 @@ Vue.use(ElementUI)
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
-  { path: '/home', component: Home }
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users }
+    ]
+  }
 ]
 
 const router = new VueRouter({
