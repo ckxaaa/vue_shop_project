@@ -68,7 +68,7 @@
       title="提示"
       :visible.sync="addDialogVisible"
       width="50%"
-      :before-close="addDialogClosed">
+      :close="addDialogClosed">
       <el-form ref="addFormRef" :model="addForm" :rules="addFormRules">
         <el-form-item label="角色名" prop="roleName">
         <el-input v-model="addForm.roleName" ></el-input>
